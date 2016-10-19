@@ -97,7 +97,7 @@ module.exports = function (context, data) {
     context.log(data);
 
     get_origin_menu(origin_menu_url).then(function(menu_list) {
-        console.log(menu_list);
+        context.log(menu_list);
         context.res = {
             body: {
                 'result': 'ok',
@@ -107,7 +107,7 @@ module.exports = function (context, data) {
         };
         context.done();
     }).catch(function(err) {
-        console.log(err);
+        context.log(err);
         context.res = {
             body: { 'result': err.message },
         };
