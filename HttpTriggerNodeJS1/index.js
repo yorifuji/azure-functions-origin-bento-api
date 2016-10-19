@@ -96,6 +96,13 @@ module.exports = function (context, data) {
     context.log('Webhook was triggered!');
     context.log(data);
 
+    if ("ping" in data.query) {
+        context.log(data.query.ping);
+        context.res = { body : {} };
+        context.done();
+        return;
+    }
+
     get_origin_menu(origin_menu_url).then(function(menu_list) {
         context.log(menu_list);
         context.res = {
